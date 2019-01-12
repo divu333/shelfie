@@ -30,3 +30,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+.Header {
+width: 100%;
+height: 100px;
+position: fixed;
+background-color: #AB2A19;
+top: 0;
+z-index: 2;
+}
+
+.Header_logo{
+width: 50px;
+position: absolute;
+top: 25px;
+left: 75px;
+}
+
+.Header_title  {
+position: absolute;
+top: 35px;
+left: 150px;
+font-weight: 700;
+font-size: 30px;;
+color: #FDFAF9;
+text-transform: uppercase;
+
+}
