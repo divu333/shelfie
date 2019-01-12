@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 class Form extends Component {
   render() {
-    return <div > Home   </div>
+    return <div > Form   </div>
     
   }
 }

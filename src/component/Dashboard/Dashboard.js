@@ -1,16 +1,13 @@
-
 import React, { Component } from 'react';
-import Product from './component/Product/Product';
-
-
+import Product from '../product/Product';
 
 class Dashboard extends Component {
   render() {
     return (
-    <div > 
-               <Product/>
-
+    <div >         
          Dashboard 
+         <Product/>
+
          </div>
     );
   }
