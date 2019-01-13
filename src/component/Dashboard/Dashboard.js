@@ -4,8 +4,8 @@ import Product from '../product/Product';
 class Dashboard extends Component {
   render() {
     return (
-    <div >         
-         Dashboard 
+    <div className="dash">         
+       
          <Product/>
 
          </div>
