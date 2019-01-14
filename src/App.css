@@ -70,7 +70,8 @@ text-transform: uppercase;
 }
 
 .form-preview{
-  background-image: url(../src/component/img/no-image-800x511.png);
+ /* background-image: url(../src/component/img/no-image-800x511.png);*/
+
   width: 320px;
   height: 200px;
   margin:7px auto;
