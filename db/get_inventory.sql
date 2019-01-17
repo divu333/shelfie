@@ -1,1 +1,1 @@
-select * from product;
+SELECT * from products ORDER BY id ASC
