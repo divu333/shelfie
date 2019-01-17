@@ -31,13 +31,13 @@ export default function Product(props) {
 				<div className="name-price">
 					<p>{props.currentProduct.name}</p>
 					<p>${props.currentProduct.price} </p>
+				
 				</div>
-
 				<div className="button-container">
 					<button
 						className="product-button"
 						onClick={() => {
-							axios.delete('/api/inventory/' + props.currentProduct.product_id).then(() => {
+							axios.delete('/api/inventory/' + props.currentProduct.id).then(() => {
 								props.getItemList();
 							});
 						}}
@@ -45,7 +45,7 @@ export default function Product(props) {
 						{' '}
 						Delete
 					</button>
-					<Link to={"/edit-product-form/" + props.currentProduct.product_id}>
+					<Link to={"/edit-product-form/" + props.currentProduct.id}>
 						<button className="product-button">Edit</button>
 					</Link>
 				</div>

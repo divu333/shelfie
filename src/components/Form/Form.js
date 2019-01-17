@@ -125,7 +125,7 @@ class Form extends Component {
          
     }
     componentDidUpdate(props){
-        if(props.match.params.id != this.props.match.params.id){
+        if(props.match.params.id !== this.props.match.params.id){
             this.setState({
                 name: "",
 			    price: "",
