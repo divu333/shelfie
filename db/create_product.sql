@@ -1,7 +1,7 @@
 INSERT INTO products (
 name,
 price,
-img
+image_url
 )
 
 VALUES(
