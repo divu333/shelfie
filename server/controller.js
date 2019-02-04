@@ -13,10 +13,10 @@ module.exports = {
   create: (req, res, next) => {
     console.log("here");
     const dbInstance = req.app.get("db");
-    const { name, price, image_url } = req.body;
+    const { pname, price, image_url } = req.body;
 
     dbInstance
-      .create_product([name, price, image_url])
+      .create_product([pname, price, image_url])
       .then(() => res.sendStatus(200))
       .catch(err => {
         res.status(500).send({ errorMessage: "Something went wrong!" });
@@ -37,7 +37,7 @@ module.exports = {
   },
   update: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { name, price, image_url } = req.body;
+    const { pname, price, image_url } = req.body;
     const { id } = req.params;
 
     dbInstance

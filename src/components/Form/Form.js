@@ -6,7 +6,7 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      pname: "",
       price: "",
       image_url: "",
       currentId: null
@@ -18,7 +18,7 @@ class Form extends Component {
         .get("/api/inventory/" + this.props.match.params.id)
         .then(response => {
           this.setState({
-            name: response.data[0].name,
+            pname: response.data[0].pname,
             price: response.data[0].price,
             image_url: response.data[0].image_url,
             currentId: response.data[0].product_id
@@ -29,7 +29,7 @@ class Form extends Component {
   componentDidUpdate(props) {
     if (props.match.params.id != this.props.match.params.id) {
       this.setState({
-        name: "",
+        pname: "",
         price: "",
         image_url: "",
         currentId: null
@@ -37,14 +37,14 @@ class Form extends Component {
     }
   }
 
-  handleChange(event, name) {
+  handleChange(event, pname) {
     const value = event.target.value;
-    this.setState({ [name]: value });
+    this.setState({ [pname]: value });
   }
 
   addItem() {
     const newItem = {
-      name: this.state.name,
+      pname: this.state.pname,
       price: this.state.price,
       image_url: this.state.image_url
     };
@@ -53,7 +53,7 @@ class Form extends Component {
   }
   updateItem() {
     const editedItem = {
-      name: this.state.name,
+      pname: this.state.pname,
       price: this.state.price,
       image_url: this.state.image_url
     };
@@ -77,7 +77,7 @@ class Form extends Component {
               ? "http://experienceidyllwild.com/images/no-image-available2.jpg"
               : this.state.image_url
           }
-          alt={this.state.name}
+          alt={this.state.pname}
         />
         <div className="form-inputs">
           <p className="input-label">Image URL:</p>
@@ -87,8 +87,8 @@ class Form extends Component {
           />
           <p className="input-label">Product Name:</p>
           <input
-            value={this.state.name}
-            onChange={e => this.handleChange(e, "name")}
+            value={this.state.pname}
+            onChange={e => this.handleChange(e, "pname")}
           />
           <p className="input-label">Price:</p>
           <input

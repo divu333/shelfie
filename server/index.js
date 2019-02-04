@@ -1,15 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const controller = require("./controller");
 const massive = require("massive");
 require("dotenv").config();
+const controller = require("./controller");
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/../public/build"));
 massive(process.env.CONNECTION_STRING)
-  .then(db => {
-    app.set("db", db);
+  .then(dbInstance => {
+    app.set("db", dbInstance);
   })
   .catch(err => console.log(err));
 
@@ -19,8 +18,7 @@ app.delete("/api/inventory/:id", controller.delete);
 app.put("/api/inventory/:id", controller.update);
 app.get("/api/inventory/:id", controller.getOne);
 
-const port = 3333;
-
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
-  console.log(`Server listening at localhost:${port}`);
+  console.log(`Server listening on port ${port}.`);
 });
