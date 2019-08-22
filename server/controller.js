@@ -1,5 +1,7 @@
 module.exports = {
   read: (req, res, next) => {
+    // console.log(name);
+
     const dbInstance = req.app.get("db");
 
     dbInstance
@@ -41,7 +43,7 @@ module.exports = {
     const { id } = req.params;
 
     dbInstance
-      .update_product([id, name, price, image_url])
+      .update_product([id, pname, price, image_url])
       .then(() => res.sendStatus(200))
       .catch(err => {
         res.status(500).send({ errorMessage: "Something went wrong!" });
