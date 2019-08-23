@@ -21,11 +21,13 @@ class Form extends Component {
             pname: response.data[0].pname,
             price: response.data[0].price,
             image_url: response.data[0].image_url,
-            currentId: response.data[0].product_id
+            currentId: response.data[0].id
           });
         });
     }
+    console.log("name", this.state);
   }
+
   componentDidUpdate(props) {
     if (props.match.params.id != this.props.match.params.id) {
       this.setState({
@@ -52,6 +54,7 @@ class Form extends Component {
     axios.post("/api/inventory", newItem).then(() => {});
   }
   updateItem() {
+    console.log("id", this.state.currentId);
     const editedItem = {
       pname: this.state.pname,
       price: this.state.price,
@@ -63,11 +66,14 @@ class Form extends Component {
       .then(() => {});
   }
   render() {
+    console.log(this.state);
     const addOrUpdate = this.state.currentId ? (
       <button onClick={() => this.updateItem()}>Save Changes</button>
     ) : (
       <button onClick={() => this.addItem()}>Add to inventory</button>
     );
+    console.log("hisadk", this.state.currentId);
+
     return (
       <div className="form">
         <img
